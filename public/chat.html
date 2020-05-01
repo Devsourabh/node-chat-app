@@ -4,12 +4,17 @@
 <head>
     <meta charset="UTF-8">
     <title>Chat App</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./css/styles.min.css">
+    <link rel="stylesheet" href="./css/responsive.css">
     <link rel="shortcut icon" href="./img/favicon.png" type="image/x-icon">
 </head>
 
 <body>
     <div class="chat">
+        <div class="icon-one" style="display: none;">
+            <div class="hamburger hamburger-one"></div>
+        </div>
         <div id="sidebar" class="chat__sidebar">
 
         </div>
@@ -18,7 +23,7 @@
             <div class="compose">
                 <form id="message-form">
                     <input name="message" type="text" required autocomplete="off">
-                    <button type="submit">Submit</button>
+                    <button type="submit" id='send-button'>Submit</button>
                 </form>
                 <button id="sendLocation">Send Location</button>
             </div>

@@ -4,7 +4,7 @@ const express = require('express')
 const socketio = require('socket.io')
 const Filter = require('bad-words')
 const { generateMessage , generateLocationMessage } = require('./utils/messages')
-const { addUser, removeUser, getUser, getUsersInRoom } = require('./utils/users')
+const { addUser, removeUser, getUser, getUsersInRoom, getAvilableRoom } = require('./utils/users')
 
 const app = express()
 const server = http.createServer(app)
@@ -40,7 +40,6 @@ io.on('connection',(socket)=>{
     })
 
 
-   
     socket.on('sendMessage',(message,callback)=>{
         filter = new Filter()
         const user = getUser(socket.id)
@@ -58,6 +57,9 @@ io.on('connection',(socket)=>{
         io.to(user.room).emit('locationMessage', generateLocationMessage(user.username,location))
         callback()
     })
+
+
+    socket.emit('sendRoomData', getAvilableRoom())
 
     socket.on('disconnect',()=>{
         const user = removeUser(socket.id)

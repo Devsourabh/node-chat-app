@@ -1,0 +1,72 @@
+@media (max-width:500px){
+    .chat__main{
+        min-height: 100vh;
+    }
+    .chat__sidebar{
+        width: 0;
+        transition: width .5s;
+    }
+    .hamburger {
+  top:40%;
+  left:10%;
+  width: 40px;
+  height: 4px;
+  background: rgb(61, 54, 54);
+  position: absolute;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, .2);
+  transition: 0.5s;
+}
+
+.hamburger:before {
+  top: -12px;
+}
+
+.hamburger:after {
+  top: 12px;
+}
+
+#send-button{
+    display: none;
+}
+
+
+/* Icon 1 */
+.icon-one {
+    display: block!important;
+  position: absolute;
+  right:1%;
+  width: 100px;
+  height: 100px;
+  cursor: pointer;
+}
+
+.hamburger-one:before,
+.hamburger-one:after {
+  content: '';
+  position:absolute;
+  width: 40px;
+  height: 4px;
+  background:rgb(29, 27, 27);
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+  transition:0.5s;
+}
+
+.icon-one.active-one .hamburger-one {
+  background:rgba(0,0,0,0);
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0);
+}
+
+.icon-one.active-one .hamburger-one:before {
+  top: 0;
+  transform:rotate(45deg);
+}
+
+.icon-one.active-one .hamburger-one:after {
+  top: 0;
+  transform:rotate(135deg);
+  box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.2);
+}
+
+
+    
+}

@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <title>Chat App</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./css/styles.min.css">
     <link rel="shortcut icon" href="./img/favicon.png" type="image/x-icon">
 </head>
@@ -10,15 +11,26 @@
     <div class="centered-form">
          <div class="centered-form__box">
              <h1>Join</h1>
-             <form action='./chat.html'>
+             <form action='./chat.html' id='indexForm'>
                  <label for="">Display Name</label>
                  <input type="text" name="username" placeholder="Display Name" required>
                  <label for="">Room</label>
-                 <input type="text" name="room" placeholder="Room" required>
+                 <input type="text" name="room" autocomplete="off" placeholder="Room" required list='browsers'>
+
                  <button>Join</button>
              </form>
          </div>
     </div>
+    <script id="room-data" type="text/html">
+        <datalist id="browsers">
+            {{#room}}
+            <option value="{{room}}">
+            {{/room}}
+        </datalist>
+    </script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mustache.js/3.0.1/mustache.min.js"></script>
+<script src="/socket.io/socket.io.js"></script>
+<script src="/js/index.js"></script>
 </body>
 
 </html>

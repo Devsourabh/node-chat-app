@@ -45,6 +45,7 @@ const autoscroll = ()=>{
 }
 
 
+
 socket.on('message',({ username, text,createdAt})=>{
     const html = Mustache.render(messageTemplate,{
         username,
@@ -66,6 +67,7 @@ socket.on('locationMessage', ({ username, url, createdAt}) => {
 })
 
 socket.on('roomdata',({ room, users })=>{
+    console.log(users)
     const html = Mustache.render(sidebarTemplate,{
         room,
         users
@@ -111,4 +113,24 @@ socket.emit('join', Data, (error)=>{
         alert(error)
         location.href = '/'
     }
+})
+
+
+
+document.querySelector('.icon-one').addEventListener('click', ()=>{
+    if(sidebar.classList.contains('active')){
+        sidebar.style.width = '0'
+        sidebar.classList.remove('active')
+        document.querySelector('.icon-one').classList.remove('active-one')
+       
+
+    }else{
+        sidebar.classList.add('active')
+        document.querySelector('.icon-one').classList.add('active-one')
+        sidebar.style.width = '200px'
+
+        
+    }
+   
+    
 })
